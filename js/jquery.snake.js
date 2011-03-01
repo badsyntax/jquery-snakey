@@ -206,8 +206,24 @@ var Snake = {
 			Snake.advanceLevel();
 
 		// reposition snake segments on map
+		/* (original version)
 		for(var i=0;i<Snake.seg.length;i++) {
 			Snake.seg[i].css({top:Snake.seg[i].top+"px",left:Snake.seg[i].left+"px",display:"block"});
+		}
+		*/
+		// modified by Sandip Bhattacharjee employee of esolz technologies pvt ltd.
+		// email: sandip@esolzmail.com(official), mailme.sandip@gmail.com(parsonal).
+		var iFlag = parseInt(Snake.seg.length - 1);
+		for(var i=0;i<Snake.seg.length;i++) {
+			if(iFlag == 0)
+			{
+				Snake.seg[iFlag].css({top:Snake.seg[0].top+"px",left:Snake.seg[0].left+"px",display:"block"});
+			}
+			else
+			{
+				Snake.seg[iFlag].css({top:Snake.seg[i+1].top+"px",left:Snake.seg[i+1].left+"px",display:"block"});
+			}
+			iFlag--;
 		}						
 	},
 			
